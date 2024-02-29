@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Kalmar Dämme project</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/d3.v5.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js" integrity="sha512-UOJe4paV6hYWBnS0c9GnIRH8PLm2nFK22uhfAvsTIqd3uwnWsVri1OPn5fJYdLtGY3wB11LGHJ4yPU1WFJeBYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="css/gapminder.css">
+    <title>map</title>
+    <style>
+      .background-image {
+        background-image: url(imgs/map.jpg); /* Modify the path to the image as needed */
+        background-size: cover;
+      }
+      #chart-area {
+        min-width: 50%;
+      }
+      .d3-tip {
+        background-color: black;
+      }
+      #continent-select {
+        display: none;
+      }
+      .carousel-item {
+        background-image: url('imgs/banner.jpg');
+        background-size: cover;
+        background-position: center;
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .carousel-caption h1, .carousel-caption p {
+        display: table; 
+        /* margin: 0px auto 0px auto; keep the table centered */
+        padding:5px;
+        color:green;
+        background-color:#ffffff;
+        text-align: left;
+      }
+      .myfeature {
+        text-align: left;
+        list-style-type: none
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="css/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Kalmar Dämme IoT</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="geomap.html">Geomap</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="linechart.html">Line charts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="violinplot.html">Violin plot</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+
+    <main>
+
+
+      <!-- ================================================== --> -->
+
+
+      <div class="container">
+        <h1 class="display-2">Geomap</h1>
+
+        <!-- START THE FEATURETTES -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <p>&nbsp;</p>
+            <h2>Geografic map over time showing 9 sensors paramaters,</h2>
+            <p>&nbsp;</p>
+            <p class="lead">In this map we see the wetlands in Kalmar, close to <a fref="https://kalmarolandairport.se/" target="Kalmar Öland Airport">Kalmar Öland Airport</a>. See the map in <a href="https://maps.app.goo.gl/VcY7hmm95p7HWa3A6" target="google_maps_kalmar_damme">Google Maps ><</a></p>
+            <p class="lead">On the map you can see 9 circles that represent 9 sensors that were installed in 9 differents points of the wetlands sorrounding the airport in order to control water depth, conductivity of the water</p>
+            <p class="lead">To see the values you can move the cursos over the circle. You also can stop the animation pressing PAUSE button.</p>
+          </div>
+          <div class="col-md-8">
+    <!-- Geomap diagram -->
+            <div class="row">
+              <div class="col-md-12">
+                <p>&nbsp;</p>
+                <button id="play-button" class="btn btn-primary">Play</button>
+                <button id="reset-button" class="btn btn-default">Reset</button>
+                <div id="slider-wrapper">
+                  <div id="date-slider"></div>
+                </div>
+                <select id="continent-select" class="form-control">
+                  <option selected value="all">All</option>
+                </select>  
+              </div>
+              <div class="col-md-12">
+                <p>&nbsp;</p>
+                <div id="chart-area"></div>
+                <p>Detail of the istance sensor LDDS75</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Animated diagram -->
+        <div class="row">
+          <div class="col-md-7">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <button id="TWOplay-buttonc" class="btn btn-primary">Play</button>
+            <button id="reset-buttonc" class="btn btn-default">Reset</button>
+            <div id="chart-areac"></div>
+            <p>Conductivity (µSiemens/cm"), Water depth (cm) and Temperature (&deg;C) .</p>
+          </div>
+
+          <div class="col-md-5">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h2>Diagram over time showing 4 variables</h2>
+            <p>This diagram show the relationship between Conductivity, Waterdepth and Temperature over time. </p>
+            <p>When pressing PLAY you can see how the values change:</p>
+            <ul>
+              <li>Conductivity is represented on the x-axis (horizontal axis).</li>
+              <li>Water depth is represented on the y-axis (vertical axis). </li>
+              <li>Temperature is related to the size and color of the circle.</li>
+              <li>NOTE: to see the values you can move the cursos over the circle. You also can stop the animation pressing PAUSE button.</li>
+            </ul> 
+          </div>
+
+        </div>
+
+        <hr class="featurette-divider">
+
+
+
+        <!-- Three columns of text below the carousel -->
+
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Related concepts</h2>
+            <p class="lead">Here we are proposing a list of concepts to elaborate that are related to biology, technology, data visualization, and chemistry-physics.</p>
+            <ul>
+              <li>Electric Conductivity of the water: it is related to the amount of salted water from the sea that gets mixed with the wetlands water from the rain. Get more info about electric conductivity ><</li>
+              <li>pH of the ware: acidity of the water is related to the concentration of Hidrogen cations on the water: Get infor about pH >></li>
+              <li>Temperature. Unities of Temperature.</li>
+              <li>...</li>
+            </ul>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <image id="book" width="90%" />        
+          </div>
+        </div>
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; 2024 <a href="https://infravis.se">Infravis.se</a></p>
+      </footer>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+    const randomNumber = Math.floor(Math.random() * 3) + 1;
+    const srcValue = `imgs/books${randomNumber}.jpg`;
+    const imgElement = document.getElementById('book');
+    imgElement.src = srcValue;
+    </script>
+
+  <script type="text/javascript" src="js/gap.js"></script>      
+  </body>
+</html>

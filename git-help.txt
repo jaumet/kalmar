@@ -1,0 +1,2 @@
+git remote add origin https://leonard.lnu.se/git/jaume-nualart/Infravis-Kalmar-Damme.git
+git push -u origin main
