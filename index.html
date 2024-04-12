@@ -11,6 +11,14 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
     
+    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/d3.v5.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js" integrity="sha512-UOJe4paV6hYWBnS0c9GnIRH8PLm2nFK22uhfAvsTIqd3uwnWsVri1OPn5fJYdLtGY3wB11LGHJ4yPU1WFJeBYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="css/gapminder.css">
+
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,6 +50,48 @@
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
+
+        .background-image {
+        background-image: url(imgs/map.jpg); /* Modify the path to the image as needed */
+        background-size: cover;
+      }
+      #chart-area {
+        min-width: 50%;
+      }
+      .d3-tip {
+        background-color: black;
+      }
+      #continent-select {
+        display: none;
+      }
+      .carousel-item {
+        background-image: url('imgs/banner.jpg');
+        background-size: cover;
+        background-position: center;
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .carousel-caption h1, .carousel-caption p {
+        display: table; 
+        /* margin: 0px auto 0px auto; keep the table centered */
+        padding:5px;
+        color:green;
+        background-color:#ffffff;
+        text-align: left;
+      }
+      .myfeature {
+        text-align: left;
+        list-style-type: none
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
       }
     </style>
 
@@ -64,13 +114,13 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="geomap.html">Geomap</a>
+            <a class="nav-link" href="sensors.html">Sensors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="linechart.html">Line charts</a>
+            <a class="nav-link" href="biodiversity.html">Biodiversity</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="violinplot.html">Violin plot</a>
+            <a class="nav-link" href="datatech.html">Data</a>
           </li>
         </ul>
       </div>
@@ -103,180 +153,129 @@
         <!-- START THE FEATURETTES -->
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-6">
             <h1>Introduction</h1>
             <p>&nbsp;</p>
-            <p class="lead">Discover the transformative role of Kalmar Dam, an artificial wetland with a sustainable mission. Learn how this innovative solution plays a crucial role in reducing the environmental impact of chemicals used at the Kalmar airport and surrounding farms, and diminish the risk of floods. By creating a new ecosystem for both flora and fauna, Kalmar Dam contributes significantly to keeping the Baltic clean. Delve deeper into the workings of this extraordinary dam and explore its mission to foster sustainability.<p>
-            <h1>The Process</h1>
+            <p class="lead">Discover the transformative role of Kalmar Dam, an artificial wetland with a sustainable mission. Learn how this innovative solution plays a crucial role in reducing the environmental impact of chemicals used at the Kalmar airport and surrounding farms, and diminish the risk of floods. By creating a new ecosystem for both flora and fauna, Kalmar Dam contributes significantly to keeping the Baltic clean. Delve deeper into the workings of this extraordinary dam and explore its mission to foster sustainability.
+            </p>
             <p>&nbsp;</p>
-              <p class="lead">Eutrophication begins with the enrichment of the lake water, leading to increased phytoplankton productivity. This process, known as Algae Blooms, sets off a chain reaction. Bacteria decompose the algae, consuming oxygen and releasing carbon dioxide. The decline in oxygen levels results in the death of aquatic life and plants. As organic material accumulates, the lake's health deteriorates.</p>
-              <p>&nbsp;</p>
-            <h1>Kalmar Dam's Solution</h1>
+            </div>
+
+            <div class="col-md-6">
+
+            <h1>The Challenge
+            </h1>
             <p>&nbsp;</p>
-              <p class="lead">Kalmar Dam plays a pivotal role in preventing the harmful effects of eutrophication. The dam's water flows through five monitored sections equipped with different types of sensors. These sensors, integrated into the Internet of Things (IoT) and connected to the Helium network, provide real-time data for early detection of eutrophication.
+              <p class="lead">Kalmar airport relies on Urea, a nitrogen-rich chemical essential for preventing ice on runways. Additionally, nearby farms use fertilizers containing phosphorus and nitrogen. As a result, water runoff carries an influx of minerals and nutrients, setting the stage for eutrophication in the Törnebybäcken water course and ultimately to the Baltic Sea.
               </p>
               <p>&nbsp;</p>
-            <h1>Sensor Technology</h1>
-            <p>&nbsp;</p>
-              <p class="lead">One key sensor, the conductivity sensor, offers insights into oxygen levels within the dam. By identifying signs of eutrophication early on, researchers can intervene and mitigate the process. The IoT integration ensures seamless communication, allowing for swift responses to maintain wetlands in the dam's ecological balance.</p>
-              <p>&nbsp;</p>
-            <h1>Wetlands and Filtration Plants</h1>
-            <p>&nbsp;</p>
-                <p class="lead">In addition to sensor technology, Kalmar Dam employs filtration plants to remove impurities from the water. These plants play a crucial role in maintaining water quality, contributing to the overall sustainability of the lake. 
-                </p>
-          </div>
-          <div class="col-md-5">
-            <img src="imgs/Sensor_LDDS75.jpeg" />
-            <p>Detail of the istance sensor LDDS75</p>
-            <p>&nbsp;</p>
-            <img src="imgs/schema.png" />
-            <p class="lead">Image 1 + airport: https://www.istockphoto.com/se/vektor/the-eutrophication-process-gm1364257858-435526731
-            </P>
-
-          </div>
+            </div>
         </div>
 
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Description of the project</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/hoeM0eITZug?si=v0xviBwgHrvMc_1r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-
-          <div class="col-md-5">
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <h2>Learn More about IoT and the Helium Network</h2>
-            <p>Explore the world of the Internet of Things (IoT) and the Helium network, integral components of Kalmar Dam's monitoring and communication system. Gain insights into how these technologies enhance the dam's efficiency and contribute to its sustainable mission.
-            </p>
-            <h2>Helium Network: A Connectivity Breakthrough</h2>
-            <p>Discover how Kalmar Dam stands as a testament to innovation, sustainability, and the harmonious coexistence of recreational activities and nature. Join us in championing a cleaner, healthier Baltic region through the remarkable efforts of Kalmar Dam.
-            </p>
-            <p><a href="https://lnu.se/forskning/forskningsprojekt/projekt-iot-lab-for-smf-2-.-0/" target="LNU_site">More info at LNU>></a></p>
-          </div>
-
-        </div>
-
-        <hr class="featurette-divider">
         <div class="row">
-          <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Geo map</title>
-              <rect width="100%" height="100%" fill="#777"/>
-              <image xlink:href="imgs/circle_geomap.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" />        
-            </svg>
-            
-            <h2>Geo Map</h2>
-            <p>
-              <ul class="myfeature">
-                <li>The 9 sensors of distamce data. And a </li>
-                <li>Conductivity, Waterdepth and Temperature.</li>
-              </ul>
-              </p>
-            <p><a class="btn btn-secondary" href="geomap.html">Geo map &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Line chart</title>
-              <rect width="100%" height="100%" fill="#777"/>
-              <image xlink:href="imgs/circle_linechart.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" />        
-            </svg>
-
-            <h2>Line charts</h2>
-            <p>
-              <ul class="myfeature">
-                <li>Values of Oxygen concentration over time</li>
-                <li>Values of Temperature over time</li>
-              </ul>
-            </p>
-            <p><a class="btn btn-secondary" href="linechart.html">Line charts &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Line chart</title>
-              <rect width="100%" height="100%" fill="#777"/>
-              <image xlink:href="imgs/circle_violinchart.png" width="140" height="140" preserveAspectRatio="xMidYMid slice" />        
-            </svg>
-
-            <h2>Violin plts</h2>
-            <p>
-              <ul class="myfeature">
-                <li>All values of Temperature (range & distribution)</li>
-                <li>All values of Water depth (range & distribution)</li>
-              </ul>
-            </p>
-            <p><a class="btn btn-secondary" href="violinplot.html">Violin plots &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-
-        <hr class="featurette-divider">
-        <h1 class="featurette-heading">Biological context</h1>
+            <iframe width="360" height="415" src="https://www.youtube.com/embed/hoeM0eITZug?si=v0xviBwgHrvMc_1r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
 
         <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2>Harnessing Nature's Power: Biodiversity in Kalmar Dam</h2>
-              
-              <h3>Greening the Waters: A Strategic Planting Initiative
-              </h3>
-              <p class="lead">Dive into the eco-friendly efforts around Kalmar Dam as numerous plants are strategically placed in and around the dam to enhance water purification. The expansive vegetation, both above and below the water's surface, plays a pivotal role in elevating the efficiency of this natural purification process.</p>
-
-              <h3>Key Roles of Purification Plants
-              </h3>
-              <p class="lead">Discover how these green guardians are actively involved in a series of natural processes aimed at reducing nitrogen and phosphorus content in the dam.
+          <div class="col-md-5">
+            <h1>Understanding Eutrophication</h1>
+            <h2>The Process</h2>
+            <p>&nbsp;</p>
+              <p class="lead">Eutrophication begins with the enrichment of the lake water, leading to increased phytoplankton productivity. This process, known as Algae Blooms, sets off a chain reaction. Bacteria decompose the algae, consuming oxygen and releasing carbon dioxide. The decline in oxygen levels results in the death of aquatic life and plants. As organic material accumulates, the lake's health deteriorates.
               </p>
-
               <p>&nbsp;</p>
-              <p>Pollutant Trapping:</p>
-                <ul><li>The vegetation in the dam acts as a natural barrier, trapping pollutants and sediments that might otherwise runoff into the watercourse.</li></ul>
-                <p>Root Power:</p>
-                <ul><li>Plant roots contribute to nutrient retention and soil permeability, preventing floods and ensuring a cleaner watercourse.</li></ul>
-                <p>Biodiversity Boost:></p>
-                <ul><li>The flourishing vegetation attracts a variety of animals, creating a welcoming habitat for fishes, birds, and small mammals.</li></ul>
-              <p>&nbsp;</p>
-
-              <h3>Nature's Cleanup Crew</h3>
-              <p class="lead">Witness the incredible capabilities of these plants as they capture dissolved nitrogen and phosphorus, providing a safe place for diverse species of small animals. This thriving ecosystem promotes the breakdown of organic matter, facilitated by fungi and bacteria.
-              </p>
-
-              <h3>Birds Flourish in Kalmar Dam
-              </h3>
-              <p class="lead">Explore the growing biodiversity around the dam, particularly in the realm of birds. Depending on the season, the wetlands become a safe place for various bird species, with chaffinches and waders gracing the Skärgårdsparken.
-              </p>
-
-              <h3>Raptors on the Horizon
-              </h3>
-              <p class="lead">Marvel in the presence of raptors like tawny harriers, sea eagles, pigeon hawks, red gladiators, and buzzards. Their presence stands as a testament to the improving water quality within the wetland.
-              </p>
-
-              
-
           </div>
-          <div class="col-md-5 order-md-1">
+          <div class="col-md-5">
+            <img src="imgs/istockphoto.jpg" width="700px" />
             <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <img src="imgs/biodiversity.png" width="100%" name="biodiversity schema"/>
-            <!-- <image id="book" width="90%" />         -->
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <h3>Aquatic Symphony: The Fishes of Kalmar Dam
-            </h3>
-            <h3>Transformations for Fish Efficiency
-            </h3>
-            <p class="lead">Delve into the transformative measures implemented in 2013 to boost efficiency and allow fish to thrive in Kalmar Dam. Elevated dam levels and improved multilevel structures contribute to enhanced cleaning capabilities.
-            </p>
-
-            <h3>Fish Migration Success
-            </h3>
-            <p class="lead">Discover the success story of fish migration, with species like pike and perch ascending the watercourse. The lowest dam, designed as a "pike factory," aims to strengthen predatory fish stocks along the coastal belt. Keep an eye on the fish counter for potential sightings of id, roach, and even the red-listed bream.
-            </p>
-            <p class="lead">Join the journey of sustainability and ecological resurgence at Kalmar Dam, where plants, birds, and fishes unite in a harmonious dance of biodiversity and environmental well-being.
-            </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
           </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <h1>Kalmar Dam's Solution</h1>
+          <p>&nbsp;</p>
+          <p class="lead">Kalmar Dam plays a pivotal role in preventing the harmful effects of eutrophication. The dam's water flows through five monitored sections equipped with different types of sensors. These sensors, integrated into the Internet of Things (IoT) and connected to the Helium network, provide real-time data for early detection of eutrophication.
+          </p>
+
+          <h2>Welcome to GeoMap!
+          </h2>
+          <p>&nbsp;</p>
+          <p class="lead">Explore the geographic map evolving over time, showcasing data from 9 sensors strategically placed across the wetlands to monitor crucial parameters such as water depth, temperature and conductivity.
+          </p>
+          <p>&nbsp;</p>
         </div>
+        <div class="col-md-7">
+  <!-- Geomap diagram -->
+          <div class="row">
+            <div class="col-md-12">
+              <p>&nbsp;</p>
+              <button id="play-button" class="btn btn-primary">Play</button>
+              <button id="reset-button" class="btn btn-default">Reset</button>
+              <div id="slider-wrapper">
+                <div id="date-slider"></div>
+              </div>
+              <select id="continent-select" class="form-control">
+                <option selected value="all">All</option>
+              </select>  
+            </div>
+            <div class="col-md-12">
+              <p>&nbsp;</p>
+              <div id="chart-area"></div>
+              <p>Detail of the istance sensor LDDS75</p>
+            </div>
+          </div>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="row featurette">
+        <div class="col-md-12">
+          <h2>Interactive Sensor Visualization:
+          </h2>
+          <p>&nbsp;</p>
+            <p class="lead">Interact with the map to view sensor data over time. Hover your cursor over each circle to reveal detailed parameter values. You have the flexibility to pause the animation at any time by clicking the PAUSE button.
+            </p>
+            <p>&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="row featurette">
+        <div class="col-md-12" >
+          <h1>The watercourse
+          </h1>
+          <p>&nbsp;</p>
+          <img src="imgs/watercourse.png" width="800px" />
+          <p class="lead">
+          </p>
+        </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-5 order-md-1">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <image id="book" width="60%" />        
+      </div>
+
+      <div class="col-md-4 order-md-2">
+          <h2 class="featurette-heading">Related concepts</h2>
+          <ul>
+            <li>Skärgårdsparken: <a href="https://www.naturkartan.se/sv/kalmar-lan/skargardsparken-6b834795-428e-4aff-9d59-0f79ad33dfe4" target="Skärgårdsparken" /> </li>
+            <li>Eutrophication: <a href="https://www.naturvardsverket.se/en/om-miljoarbetet/swedish-environmental-objectives/zero-eutrophication/#:~:text=It%20is%20a%20problem%20above,threats%20to%20the%20marine%20environment" target="Eutrophication" /></li>  
+          </ul>
+        </div>
+      </div>
 
         <!-- /END THE FEATURETTES -->
 
@@ -292,11 +291,14 @@
 
 
   <script src="js/bootstrap.bundle.min.js"></script>
-  <!-- <script>
-    const randomNumber = Math.floor(Math.random() * 3) + 1;
-    const srcValue = `imgs/books${randomNumber}.jpg`;
-    const imgElement = document.getElementById('book');
-    imgElement.src = srcValue;
-  </script> -->
-  </body>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  const srcValue = `imgs/books${randomNumber}.jpg`;
+  const imgElement = document.getElementById('book');
+  imgElement.src = srcValue;
+  </script>
+
+<script type="text/javascript" src="js/gap.js"></script>      
+</body>
 </html>
