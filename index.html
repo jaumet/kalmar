@@ -91,6 +91,9 @@
           font-size: 3.5rem;
         }
       }
+      .margleft {
+        margin-left: 50px;
+      }
 
       }
     </style>
@@ -230,11 +233,43 @@
               <p>Detail of the istance sensor LDDS75</p>
             </div>
           </div>
+        </div>
+
+
+  <!-- Animated diagram -->
+        <div class="row">
+          <div class="col-md-7">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <button id="TWOplay-buttonc" class="btn btn-primary">Play</button>
+            <button id="reset-buttonc" class="btn btn-default">Reset</button>
+            <div id="chart-areac"></div>
+            <p>&nbsp;</p>
+            <p class="margleft">Conductivity (µSiemens/cm"), Water depth (cm) and Temperature (&deg;C) .</p>
+          <p>&nbsp;</p>
+          </div>
+
+        <div class="col-md-5">
           <p>&nbsp;</p>
           <p>&nbsp;</p>
+          <h1>Monitoring Conductivity</h1>
+          <p>&nbsp;</p>
+          <p class="lead">Experience the visualization of four variables evolving over time in our interactive diagram. This diagram illustrates the intricate relationships between Conductivity, Water depth, and Temperature as they fluctuate over time.</p>
           <p>&nbsp;</p>
         </div>
       </div>
+    </div>
+<div class="row featurette">
+        <div class="col-md-12">
+          <p class="lead">Press PLAY to witness the dynamic changes in the values of Conductivity, Water depth, and Temperature over time. See the details by interacting with the diagram:</p>
+          <ul>
+            <li>Conductivity is mapped on the x-axis (horizontal axis).</li>
+            <li>Water depth is represented on the y-axis (vertical axis).</li>
+            <li>Temperature is indicated by the size and color of each circle.</li>
+          </ul>
+          <h2>Unlock Insights:</h2>
+          <p class="lead">The interactive diagram provides insights into temporal trends and correlations between these key variables. Move your cursor over the circles to view specific values or pause the animation at any time by clicking the PAUSE button.</p>
+        </div>
 
       <div class="row featurette">
         <div class="col-md-12">
@@ -290,7 +325,6 @@
     </main>
 
 
-  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script>
   const randomNumber = Math.floor(Math.random() * 3) + 1;
